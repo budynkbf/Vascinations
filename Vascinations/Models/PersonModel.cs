@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vascinations.Models
 {
-    internal class PersonModel
+    public class PersonModel
     {
 
         public Guid PersonId { get; set; }
