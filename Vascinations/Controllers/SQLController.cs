@@ -14,7 +14,10 @@ namespace Vascinations.Controllers
 
         static List<T> DataRowToGenericList<T>()
         {
+            
             var output = new List<T>();
+            Type listType = output.GetType().GetGenericArguments()[0];
+
 
             return output;
         }

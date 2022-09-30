@@ -9,8 +9,6 @@
 
   <ItemGroup>
     <Folder Include="Themes\" />
-    <Folder Include="ViewsModel\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>
