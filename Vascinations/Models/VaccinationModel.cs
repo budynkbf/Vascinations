@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vascinations.Models
 {
-    internal class VaccinationModel
+    public class VaccinationModel
     {
         public Guid VaccinationID { get; set; }
 

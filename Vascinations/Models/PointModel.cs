@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vascinations.Models
 {
-    internal class PointModel
+    public class PointModel
     {
         public Guid PointID { get; set; }
 

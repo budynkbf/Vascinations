@@ -4,9 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vascinations"
+        xmlns:mv="clr-namespace:Vascinations.ViewsModel"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=mv:MainWindowViewModel, IsDesignTimeCreatable=False}"
+        
         Title="Szczepienia" Height="450" Width="800">
-    <Grid>
 
+    <Window.DataContext>
+        <mv:MainWindowViewModel/>
+    </Window.DataContext>
+
+
+    <Grid>
+        <Button Content="test" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="0" Name="btnInstrukcja"
+                Width="120" Height="25"  Command="{Binding TestData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"></Button>
     </Grid>
+
 </Window>
