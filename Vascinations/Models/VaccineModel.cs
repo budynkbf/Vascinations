@@ -16,7 +16,7 @@ namespace Vascinations.Models
         public string Producer { get; set; }
 
         public int? DoseNumber { get; set; }
-        internal static string GetBaseQuery()
+        public static string GetBaseQuery()
         {
             var query = $@" SELECT [VaccineID]
                                   ,[VaccineName]

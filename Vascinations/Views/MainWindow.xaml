@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="Szczepienia" Height="450" Width="800">
     <Grid>
+        <TabControl TabStripPlacement="Bottom">
+            <TabItem Header="Szczepienia">
+                <Label Content="Wprowadzanie nowego szczepienia..." />
+            </TabItem>
 
+            <TabItem Header="Dodaj osobę">
+                <Label Content="Wprowadzanie nowej osoby..." />
+            </TabItem>
+
+            <TabItem Header="Dodaj punkt">
+                <Label Content="Wprowadzanie nowego punktu..." />
+                
+                
+                
+            </TabItem>
+
+
+
+
+        </TabControl>
     </Grid>
 </Window>
