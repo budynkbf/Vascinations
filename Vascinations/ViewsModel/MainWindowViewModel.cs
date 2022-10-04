@@ -40,9 +40,38 @@ namespace Vascinations.ViewsModel
             }
         }
 
+        public List<PointModel> PointModelList
+        {
+            get { return pointModelsList; }
+            set
+            {
+                pointModelsList = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<VaccinationModel> VaccinationModelList
+        {
+            get { return vaccinationModelsList; }
+            set
+            {
+                vaccinationModelsList = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public List<VaccineModel> VaccineModelsList
+        {
+            get { return vaccineModelsList; }
+            set
+            {
+                vaccineModelsList = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion Publics
         #region Constructor
-      public  MainWindowViewModel()
+        public  MainWindowViewModel()
         {
             TestData = new DelegateCommand(TestDataAction);
             sQLController = new SQLController();
@@ -54,7 +83,9 @@ namespace Vascinations.ViewsModel
         private void TestDataAction()
         {
             PersonModelsList = sQLRepository.GetPersonModelList();
-
+            PointModelList = sQLRepository.GetPointModelList();
+            VaccinationModelList = sQLRepository.GetVaccinationModelList();
+            VaccineModelsList = sQLRepository.GetVaccineModelList();
 
         }
         #endregion Constructor
