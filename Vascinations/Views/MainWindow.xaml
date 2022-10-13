@@ -32,7 +32,7 @@
 
         <DataGrid ItemsSource="{Binding PersonModelsList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True"></DataGrid>
         
-        <!--<Button Content="test" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="0" Name="btnInstrukcja"  Width="120" Height="25"  Command="{Binding TestData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"></Button>-->
+       <Button Content="test" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="0" Name="btnInstrukcja"  Width="120" Height="25"  Command="{Binding TestData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"></Button>
     </Grid>
 
 </Window>
