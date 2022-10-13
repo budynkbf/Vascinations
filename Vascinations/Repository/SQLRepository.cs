@@ -35,7 +35,6 @@ namespace Vascinations.Repository
 
 
 
-
         public List<PointModel> GetPointModelList() { return new List<PointModel>(); }
         public List<VaccinationModel> GetVaccinationModelList() { return new List<VaccinationModel>(); }
         public List<VaccineModel> GetVaccineModelList() { return new List<VaccineModel>(); }
