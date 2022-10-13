@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Vascinations.Repositories
 {
-    internal class PointRepository
+    internal class PointRepository : InterfaceData
     {
+        public void AddData(object data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveData(object data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Vascinations.Controllers;
 using Vascinations.Models;
@@ -23,12 +25,22 @@ namespace Vascinations.ViewsModel
         private SQLController sQLController;
         private SQLRepository sQLRepository;
 
-
+        TabControl tabsControl; 
 
         #endregion Privates
         #region Publics
 
+
+        public TabControl TabsControl
+        {
+            get { return tabsControl; }
+            set { tabsControl = value;
+                OnPropertyChanged();  } 
+        }
+
         public ICommand TestData { get; set; }
+
+        public ICommand AddData { get; set; }
 
         public List<PersonModel> PersonModelsList
         {
@@ -74,10 +86,18 @@ namespace Vascinations.ViewsModel
         public  MainWindowViewModel()
         {
             TestData = new DelegateCommand(TestDataAction);
+            AddData = new DelegateCommand<object>(AddDataAction);
             sQLController = new SQLController();
             sQLRepository = new SQLRepository();    
             
 
+        }
+
+        private void AddDataAction(object obj)
+        {
+            Window wn = new Window();
+            wn.DataContext = obj;
+            wn.Show();
         }
 
         private void TestDataAction()

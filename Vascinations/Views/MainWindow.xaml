@@ -16,12 +16,52 @@
     
 
     <Grid>
-        <TabControl TabStripPlacement="Bottom">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+
+        <WrapPanel Orientation="Horizontal">
+        
+            <Button Grid.Row="0" 
+                Content="show" 
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Left"  
+                Name="btnShow"  
+                Width="120" 
+                Height="25"  
+                Command="{Binding TestData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                Margin="5,0,0,5"></Button>
+
+        
+            <Button Grid.Row="0" 
+                Content="add" 
+                VerticalAlignment="Bottom" 
+                HorizontalAlignment="Left"  
+                Name="btnAdd"  
+                Width="120" 
+                Height="25"  
+                Command="{Binding AddData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                CommandParameter="{Binding TabsControl}"
+                Margin="5,0,0,5"></Button>
+        
+        </WrapPanel>
+
+        <TabControl Grid.Row="1" 
+                    
+                    TabIndex="{Binding TabsControl.TabIndex, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    TabStripPlacement="Bottom">
             <TabItem Header="szczepienia">
                 <Label Content="Content goes here..." />
             </TabItem>
             <TabItem Header="Osoby">
-                <Label Content="Content goes here..." />
+                    
+                 <DataGrid 
+                        ItemsSource="{Binding PersonModelsList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True">
+                 </DataGrid>
+                    
             </TabItem>
             <TabItem Header="punkty">
                 <Label Content="Content goes here..." />
@@ -30,9 +70,9 @@
         </TabControl>
 
 
-        <DataGrid ItemsSource="{Binding PersonModelsList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True"></DataGrid>
         
-       <Button Content="test" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Row="0" Name="btnInstrukcja"  Width="120" Height="25"  Command="{Binding TestData, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,5"></Button>
+        
+     
     </Grid>
 
 </Window>

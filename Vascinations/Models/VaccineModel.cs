@@ -35,5 +35,8 @@ namespace Vascinations.Models
             DoseNumber = Tools.Converter.ConvertGeneric<int>(dr[3]);
         }
 
+        public VaccineModel()
+        {
+        }
     }
 }
