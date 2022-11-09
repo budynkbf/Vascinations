@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using NLog;
+using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -102,7 +103,13 @@ namespace Vascinations.ViewsModel
 
         private void TestDataAction()
         {
-            PersonModelsList = sQLRepository.GetPersonModelList();
+
+             Logger _logger = LogManager.GetCurrentClassLogger();
+        
+            _logger.Info("Main Thread Started"); 
+
+
+                PersonModelsList = sQLRepository.GetPersonModelList();
             PointModelList = sQLRepository.GetPointModelList();
             VaccinationModelList = sQLRepository.GetVaccinationModelList();
             VaccineModelsList = sQLRepository.GetVaccineModelList();

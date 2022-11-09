@@ -8,12 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="C:\Users\budyn\.nuget\packages\nlog.config\4.7.15\contentFiles\any\any\NLog.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Themes\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NLog" Version="5.0.5" />
-    <PackageReference Include="NLog.Config" Version="4.7.15" />
     <PackageReference Include="NLog.Schema" Version="5.0.5" />
     <PackageReference Include="Prism.Wpf" Version="8.1.97" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
@@ -28,6 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
