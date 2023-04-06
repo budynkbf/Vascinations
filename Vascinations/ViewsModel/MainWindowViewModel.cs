@@ -26,7 +26,7 @@ namespace Vascinations.ViewsModel
         private SQLController sQLController;
         private SQLRepository sQLRepository;
 
-        TabControl tabsControl; 
+        private TabControl tabsControl; 
 
         #endregion Privates
         #region Publics
@@ -84,13 +84,13 @@ namespace Vascinations.ViewsModel
 
         #endregion Publics
         #region Constructor
+        
         public  MainWindowViewModel()
         {
             TestData = new DelegateCommand(TestDataAction);
             AddData = new DelegateCommand<object>(AddDataAction);
             sQLController = new SQLController();
             sQLRepository = new SQLRepository();    
-            
 
         }
 
@@ -105,11 +105,10 @@ namespace Vascinations.ViewsModel
         {
 
              Logger _logger = LogManager.GetCurrentClassLogger();
-        
             _logger.Info("Main Thread Started"); 
 
 
-                PersonModelsList = sQLRepository.GetPersonModelList();
+            PersonModelsList = sQLRepository.GetPersonModelList();
             PointModelList = sQLRepository.GetPointModelList();
             VaccinationModelList = sQLRepository.GetVaccinationModelList();
             VaccineModelsList = sQLRepository.GetVaccineModelList();
