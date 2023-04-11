@@ -18,6 +18,8 @@ namespace Vascinations.ViewsModel
     {
         #region Privates
 
+        private TabItem _activeTab;
+
         private List<PersonModel> personModelsList;
         private List<PointModel> pointModelsList;
         private List<VaccinationModel> vaccinationModelsList;
@@ -39,9 +41,22 @@ namespace Vascinations.ViewsModel
                 OnPropertyChanged();  } 
         }
 
+        public TabItem ActiveTab
+        {
+            get { return _activeTab; }
+            set
+            {
+                _activeTab = value;
+                OnPropertyChanged();
+            }
+       }
+
+
         public ICommand TestData { get; set; }
 
         public ICommand AddData { get; set; }
+
+        public ICommand TestTrigger { get; set; }
 
         public List<PersonModel> PersonModelsList
         {
@@ -83,22 +98,34 @@ namespace Vascinations.ViewsModel
         }
 
         #endregion Publics
+
         #region Constructor
-        
-        public  MainWindowViewModel()
+
+        public MainWindowViewModel()
         {
             TestData = new DelegateCommand(TestDataAction);
             AddData = new DelegateCommand<object>(AddDataAction);
-            sQLController = new SQLController();
-            sQLRepository = new SQLRepository();    
+            TestTrigger = new DelegateCommand<object>(TestTriggerAction);
 
+            sQLController = new SQLController();
+            sQLRepository = new SQLRepository();
+            tabsControl = new TabControl();
+            tabsControl.SelectedIndex = 2;
+            _activeTab = new TabItem();
+        }
+
+        private void TestTriggerAction(object obj)
+        {
+            MessageBox.Show(obj.ToString());
         }
 
         private void AddDataAction(object obj)
         {
-            Window wn = new Window();
-            wn.DataContext = obj;
-            wn.Show();
+            //MessageBox.Show("Add data " + ActiveTab.Name);
+
+            //Window wn = new Window();
+            //wn.DataContext = obj;
+            //wn.Show();
         }
 
         private void TestDataAction()
