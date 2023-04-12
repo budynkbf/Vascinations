@@ -53,29 +53,35 @@
                 Width="120"
                 Height="25"
                 Command="{Binding AddData}"    
-                CommandParameter="{Binding TabsControl}"
+                CommandParameter="{Binding ActiveTab}"
                 Margin="5,0,0,5"
                 Style="{StaticResource CustomButton}"
              ></Button>
         </WrapPanel>
 
-        <TabControl Grid.Row="1">
+        <TabControl Grid.Row="1" TabStripPlacement="Bottom" AutomationProperties.IsRequiredForForm="True" SelectedIndex="1">>
+            
+            
+            <TabItem Header="Szczepienia">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus" >
+                        <i:InvokeCommandAction Command="{Binding MarkActiveTab}" CommandParameter="Szczepienia">
+                        </i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
-            <i:Interaction.Triggers>
-
-                <i:EventTrigger EventName="TabIndexChanged" >
-                    <i:InvokeCommandAction Command="{Binding TabsControl}"/>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            
-            
-            
-                    <!--TabStripPlacement="Bottom" AutomationProperties.IsRequiredForForm="True" >-->
-            <TabItem Header="szczepienia">
+                
+                
                 <Label Content="Content goes here..." />
             </TabItem>
             
             <TabItem Header="Osoby">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus" >
+                        <i:InvokeCommandAction Command="{Binding MarkActiveTab}" CommandParameter="Osoby">
+                        </i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
 
                 <DataGrid
                         ItemsSource="{Binding PersonModelsList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True">
@@ -86,7 +92,7 @@
 
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="GotFocus" >
-                        <i:InvokeCommandAction Command="{Binding TestTrigger}" CommandParameter="TabPunkty">
+                        <i:InvokeCommandAction Command="{Binding MarkActiveTab}" CommandParameter="Punkty">
                         </i:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>

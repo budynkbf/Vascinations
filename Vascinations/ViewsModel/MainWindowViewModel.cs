@@ -18,7 +18,8 @@ namespace Vascinations.ViewsModel
     {
         #region Privates
 
-        private TabItem _activeTab;
+        private string _activeTab = "Osoby";
+
 
         private List<PersonModel> personModelsList;
         private List<PointModel> pointModelsList;
@@ -34,14 +35,14 @@ namespace Vascinations.ViewsModel
         #region Publics
 
 
-        public TabControl TabsControl
-        {
-            get { return tabsControl; }
-            set { tabsControl = value;
-                OnPropertyChanged();  } 
-        }
+        //public TabControl TabsControl
+        //{
+        //    get { return tabsControl; }
+        //    set { tabsControl = value;
+        //        OnPropertyChanged();  } 
+        //}
 
-        public TabItem ActiveTab
+        public string ActiveTab
         {
             get { return _activeTab; }
             set
@@ -56,7 +57,7 @@ namespace Vascinations.ViewsModel
 
         public ICommand AddData { get; set; }
 
-        public ICommand TestTrigger { get; set; }
+        public ICommand MarkActiveTab { get; set; }
 
         public List<PersonModel> PersonModelsList
         {
@@ -105,27 +106,29 @@ namespace Vascinations.ViewsModel
         {
             TestData = new DelegateCommand(TestDataAction);
             AddData = new DelegateCommand<object>(AddDataAction);
-            TestTrigger = new DelegateCommand<object>(TestTriggerAction);
+            MarkActiveTab = new DelegateCommand<object>(MarkActiveTabAction);
 
             sQLController = new SQLController();
             sQLRepository = new SQLRepository();
             tabsControl = new TabControl();
             tabsControl.SelectedIndex = 2;
-            _activeTab = new TabItem();
+            
         }
 
-        private void TestTriggerAction(object obj)
+        private void MarkActiveTabAction(object obj)
         {
-            MessageBox.Show(obj.ToString());
+            _activeTab = obj.ToString();
+
         }
 
         private void AddDataAction(object obj)
         {
-            //MessageBox.Show("Add data " + ActiveTab.Name);
-
-            //Window wn = new Window();
-            //wn.DataContext = obj;
-            //wn.Show();
+            MessageBox.Show("Add data " + ActiveTab);
+            
+            Window wn = new Window();
+            //ToDo otieranie dodawania zależnie od aktualnego tabu
+            wn.DataContext = ActiveTab;
+            wn.Show();
         }
 
         private void TestDataAction()
